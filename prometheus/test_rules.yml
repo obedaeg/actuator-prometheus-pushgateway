@@ -1,0 +1,10 @@
+groups:
+  - name: example
+    rules:
+      - alert: ErrorsThrown
+        expr: logback_events_total{level="error"} > 5
+        for: 2m
+        labels:
+          severity: slack
+        annotations:
+          summary: High request latency
